@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BODY MASS CALCULATION</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    body{
+        background-image: linear-gradient(to right, rgb(115, 189, 194),rgb(118, 206, 91));
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+    .container{
+      
+        width: 50vw;
+       margin-top: 5%;
+        background-color: rgb(237, 243, 241);
+        margin-bottom:4%;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px;
+    }
+    #body-mass{
+            margin-top: 10px;
+    }
+    .heading{
+       text-align: center;
+       padding-top: 30px;
+       font-family:'Times New Roman', Times, serif;
+    }
+    input[type='text']
+    {
+      width: 90%;
+      margin-left: 20px;
+      height: 40px;
+     border-radius: 10px;
+      padding-left: 20px;
+      font-size: 15px;
+      border: 0px;
+      outline: none;
+      box-shadow: 0px 0px 10px 0px rgb(223, 216, 216);
+     
+    }
+    #h3-1{
+        padding-top: 30px;
+        padding-left: 26px;
+        padding-bottom: 5px;
+    }
+    #h3-2{
+        padding-top: 10px;
+        padding-left: 26px;
+        padding-bottom: 5px;
+    }
+    button{
+        width: 90%;
+        margin-left: 23px;
+        border-radius: 10px;
+        height: 40px;
+        margin-top: 30px;
+        background-color: green;
+        color: white;
+        font-size: 20px;
+    }
+    #t1{
+        margin-top: 30px;
+    }
+   #span1{
+        display: inline-block;
+        margin-top: 20px;
+        margin-left:25%;
+        font-size: 30px;
+       
+    }
+    #span2{
+        font-size: 30px;
+
+    }
+    #span{
+        display: none;
+        margin-top: 20px;
+        
+    }
+    @media  screen and  ((min-width:590px) and (max-width:970px)) {
+
+        #span1{
+        display: inline-block;
+        margin-top: 5px;
+        margin-left:20%;
+        font-size: 25px;
+       
+    }
+    #span2{
+        font-size: 25px;
+
+    }
+    input[type='text']{
+      width: 90%;
+     
+     
+    }
+    button{
+        width: 90%;
+    }
+    .heading{
+        font-size: 25px;
+    }
+    #h3-1{
+        font-size: 15px;
+    }
+    #h3-2{
+        font-size: 15px;
+    }
+    #span{
+        margin-top: 20px;
+    }
+}
+    @media  screen and  (max-width:499px) {
+
+                    #span1{
+                                display: inline-block;
+                                margin-top: 5px;
+                                margin-left:15%;
+                                font-size: 15px;
+
+                          }
+                    #span2{
+                            font-size: 15px;
+
+                        }
+            
+    input[type='text']{
+      width: 80%;
+     
+     
+    }
+    button{
+        width: 80%;
+    }
+    .heading{
+        font-size: 20px;
+    }
+    #h3-1{
+        font-size: 15px;
+    }
+    #h3-2{
+        font-size: 15px;
+    }
+    #span{
+        margin-top: 20px;
+    }
+        
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="body-mass">
+            <h1 class="heading">Body Mass Index (BMI) Calculator</h1>
+            <h3 id="h3-1">Enter your Weight in (Kg.)</h3>
+            <input type="text" placeholder="Enter your weight" id="weight">
+            <h3 id="h3-2">Enter your Height in (Cm.)</h3>
+            <input type="text" placeholder="Enter your height" id="height">
+            <button id="btn">Compute BMI</button>
+            <input type="text"  id="t1" placeholder="Output display Here"/><br>
+            <div id="span">
+
+                <span id="span1">Weight Condition:</span>
+                <span id="span2"></span>
+            </div>
+        </div>
+       
+       
+    </div>
+
+    <script>
+        let btn=document.getElementById('btn');
+        btn.onclick=display;
+
+
+        function display()
+        {
+            let weight=document.getElementById('weight').value;
+            let height=document.getElementById('height').value;
+            let condition=document.getElementById('span2');
+            let Output=document.getElementById('t1');
+            let equation=weight/((height*height)/100)*100;
+            Output.value=equation;
+            let sp=document.getElementById('span');
+            sp.style.display='block';
+            let sp2=document.getElementById('span2');
+            if(equation>=0 && equation<=18.5)
+        {
+            sp2.innerText="Under Weight"
+            sp.style.color='brown';
+        }
+        else if(equation>18.5 && equation<=25)
+        {
+            sp2.innerText='Normal';
+            sp.style.color='green';
+        }
+        else if(equation>25 && equation<=30)
+        {
+            sp2.innerText='Over Weight';
+            sp.style.color='orange';
+        }
+        else
+        {
+             sp2.innerText='Obesity';
+             sp.style.color='red';
+        }
+           
+        }
+    </script>
+    
+</body>
+</html>
